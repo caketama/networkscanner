@@ -11,6 +11,3 @@ with open("ports.json", "r") as file:
                 print(port)
             except (KeyError, TypeError):
                 pass
-#        print(ports)
-#    description = file["443"]["description"]
-#    print(description)
