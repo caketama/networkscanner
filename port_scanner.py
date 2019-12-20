@@ -1,27 +1,32 @@
 import socket
 import threading
+from ports import port_numbers
+from port_reader import port_reader
 
 
-def TCP_connect(ip, port_number, delay, output):
+def TCP_connect(ip, port_number, delay):
     TCPsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     TCPsock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     TCPsock.settimeout(delay)
     try:
         TCPsock.connect((ip, port_number))
-        output[port_number] = "Listening"
+        if port_number in port_numbers:
+            print(str(port_number) + ": " + port_reader(port_number))
+        # output[port_number] = "Listening"
     except:
-        output[port_number] = ""
+        pass
 
 
 def scan_ports(host_ip, delay):
 
     threads = []  # To run TCP_connect concurrently
-    output = {}  # For printing purposes
+    #    output = {}  # For printing purposes
 
     # Spawning threads to scan ports
     for i in range(10000):
-        thread = threading.Thread(target=TCP_connect, args=(host_ip, i, delay, output))
+        thread = threading.Thread(target=TCP_connect, args=(host_ip, i, delay))
         threads.append(thread)
+        # , output))
 
     # Starting threads
     for i in range(10000):
@@ -32,9 +37,11 @@ def scan_ports(host_ip, delay):
         threads[i].join()
 
     # Printing listening ports from small to large
-    for i in range(10000):
-        if output[i] == "Listening":
-            print(str(i) + ": " + output[i])
+
+
+#    for i in range(10000):
+#        if output[i] == "Listening":
+#            print(str(i) + ": " + output[i])
 
 
 def main():
