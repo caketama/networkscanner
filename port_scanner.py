@@ -7,7 +7,6 @@ from sys import argv
 
 
 def TCP_connect(ip, port_number, delay=3):
-    # result = set()
     TCPsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     TCPsocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     TCPsocket.settimeout(delay)
@@ -24,17 +23,17 @@ def scan_ports(host_ip, delay=3):
 
     threads = []  # To run TCP_connect concurrently
     # Spawning threads to scan ports
-    for i in range(10000):
-        thread = threading.Thread(target=TCP_connect, args=(host_ip, i, delay))
+    for thread in range(10000):
+        thread = threading.Thread(target=TCP_connect, args=(host_ip, thread, delay))
         threads.append(thread)
 
     # Starting threads
-    for i in range(10000):
-        threads[i].start()
+    for thread in range(10000):
+        threads[thread].start()
 
     # Locking the main thread until all threads complete
-    for i in range(10000):
-        threads[i].join()
+    for thread in range(10000):
+        threads[thread].join()
 
 
 def main():
