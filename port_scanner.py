@@ -2,19 +2,22 @@ import socket
 import threading
 from port_reader import port_reader
 from sys import argv
+from data import save
 
 # from ports import port_numbers
 
 
-def TCP_connect(ip, port_number, delay=3):
+def TCP_connect(ip, port_number, delay=.5):
     TCPsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     TCPsocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     TCPsocket.settimeout(delay)
     try:
         TCPsocket.connect((ip, port_number))
         if TCPsocket.connect:
-            port_number = str(port_number) + ": " + port_reader(port_number)
-            print(port_number)
+            port_number = str(port_number)
+            services = port_reader(port_number)
+            print(port_number + " " + services)
+            save(ip, port_number, services)
     except:
         pass
 
