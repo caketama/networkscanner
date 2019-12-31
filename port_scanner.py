@@ -1,8 +1,9 @@
 import socket
 import threading
 from port_reader import port_reader
-from ports import port_numbers
 from sys import argv
+
+# from ports import port_numbers
 
 
 def TCP_connect(ip, port_number, delay=3):
@@ -15,9 +16,6 @@ def TCP_connect(ip, port_number, delay=3):
         if TCPsocket.connect:
             port_number = str(port_number) + ": " + port_reader(port_number)
             print(port_number)
-            # result.add(port_number)
-            # print(result)
-        # return result
     except:
         pass
 
@@ -42,10 +40,6 @@ def scan_ports(host_ip, delay=3):
 def main():
     host_ip = argv[1]
     scan_ports(host_ip)
-    # print(TCP_connect(host_ip,ports))
-    # ip = "192.168.1.214"
-    # print(scan_ports(host_ip))
-    # print(port_reader(scan_ports(host_ip)))
 
 
 if __name__ == "__main__":
