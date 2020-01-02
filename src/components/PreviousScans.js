@@ -1,10 +1,12 @@
 import React from "react";
-import { Flex } from "rebass";
+import { Flex, Text } from "rebass";
 
 const PreviousScans = () => {
   return (
     <Flex sx={{ justifyContent: "center" }}>
-      <h1>Previous Scans</h1>
+      <Text color="white" fontSize={6}>
+        Previous Scans
+      </Text>
     </Flex>
   );
 };
