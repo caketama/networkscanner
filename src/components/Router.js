@@ -1,12 +1,11 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import PreviousScans from './PreviousScans'
-import Scanner from '../containers/Scanner'
-
+import Scan from './Scan'
 function Router() {
   return (
   <div>
-    <Route exact path="/" component={Scanner} />
+    <Route exact path="/" component={Scan} />
     <Route path="/previousscans" component={PreviousScans} />
   </div>
   )
