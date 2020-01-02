@@ -8,7 +8,7 @@ from data import save
 
 
 def TCP_connect(ip, port_number, delay=.5):
-    TCPsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    TCPsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
     TCPsocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     TCPsocket.settimeout(delay)
     try:
