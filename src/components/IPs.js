@@ -1,7 +1,12 @@
-import React from 'react';
+import React from "react";
+import { Text } from "rebass";
 
 const IPs = () => {
-  return <h1>IPs Scanned</h1>
-}
+  return (
+    <Text color="white" fontSize={6}>
+      IPs Scanned
+    </Text>
+  );
+};
 
 export default IPs;

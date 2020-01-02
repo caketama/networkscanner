@@ -1,7 +1,12 @@
 import React from 'react';
+import { Text } from "rebass";
 
 const Ports = () => {
-  return <h1> Ports </h1>
+  return (
+    <Text color="white" fontSize={6}>
+      Ports
+      </Text>
+      )
 }
 
 export default Ports;

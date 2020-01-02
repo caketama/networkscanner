@@ -1,7 +1,12 @@
 import React from 'react';
+import { Text } from "rebass";
 
 const Services = () => {
-  return <h1>Services</h1>
+  return (
+    <Text color="white" fontSize={6}>
+      Services
+    </Text>
+  );
 }
 
 export default Services;
