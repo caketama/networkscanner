@@ -2,7 +2,7 @@ import React from "react";
 import IPs from "../components/IPs";
 import Ports from "../components/Ports";
 import Services from "../components/Services";
-import { Flex, Box, Text } from "rebass";
+import { Flex, Box } from "rebass";
 
 const Scanner = () => {
   return (

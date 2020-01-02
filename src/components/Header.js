@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Flex, Box, Text } from "rebass";
+import { Flex } from "rebass";
 import PreviousScans from "./PreviousScans";
 
 const Header = () => {

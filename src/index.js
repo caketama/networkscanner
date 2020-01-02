@@ -7,7 +7,6 @@ import { BrowserRouter, Redirect } from "react-router-dom";
 
 const app = (
   <BrowserRouter>
-    <Redirect from="/" to="/scanner" />
     <App />
   </BrowserRouter>
 );
