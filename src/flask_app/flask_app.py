@@ -1,13 +1,18 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
+import json
 from subprocess import check_output
 
 app = Flask(__name__)
 
 
-@app.route("/api/scan", methods=["GET"])
+@app.route("/api/scan", methods=["POST"])
 def scan():
-    ip = "192.168.56.4"
+    data = request.data
+    data = json.loads(data)
+    print(data)
+    ip = data.get("ip_address")
     scan = check_output(["python", "port_scanner.py", ip]).decode()
+    print(scan)
     return jsonify({"scan": scan})
 
 
