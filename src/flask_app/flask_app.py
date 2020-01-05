@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-import json
+from json import loads
 from subprocess import check_output
 
 app = Flask(__name__)
@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route("/api/scan", methods=["POST"])
 def scan():
     data = request.data
-    data = json.loads(data)
+    data = loads(data)
     print(data)
     ip = data.get("ip_address")
     scan = check_output(["python", "port_scanner.py", ip]).decode()
