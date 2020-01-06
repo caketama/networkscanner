@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from json import loads
 from subprocess import check_output
+# from data import save_port
 
 app = Flask(__name__)
 
@@ -9,10 +10,16 @@ app = Flask(__name__)
 def scan():
     data = request.data
     data = loads(data)
-    print(data)
     ip = data.get("ip_address")
     scan = check_output(["python", "port_scanner.py", ip]).decode()
-    print(scan)
+    scan = scan.split("\n")
+    # print(scan)
+    # ports = [scan.split(":")[0] for scan in scan]
+    for service in scan:
+        try:
+            print(service.split(":")[1])
+        except IndexError:
+            pass
     return jsonify({"scan": scan})
 
 
