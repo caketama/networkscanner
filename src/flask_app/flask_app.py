@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 from json import loads
 from subprocess import check_output
 from sqlite3 import connect
+
 # from data import save_port
 
 app = Flask(__name__)
@@ -15,7 +16,8 @@ def get_scans():
     if ip:
         with connect("scans.db") as connection:
             cursor = connection.cursor()
-            SQL = """SELECT ports FROM scans WHERE ip_address=?"""
+            SQL = """SELECT ports, services FROM scans
+            WHERE ip_address=?"""
             ports = cursor.execute(SQL, (ip,)).fetchall()
             if ports:
                 return jsonify({"ports": ports})
