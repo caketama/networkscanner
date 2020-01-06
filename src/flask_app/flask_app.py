@@ -19,8 +19,9 @@ def get_scans():
             SQL = """SELECT ports, services FROM scans
             WHERE ip_address=?"""
             ports = cursor.execute(SQL, (ip,)).fetchall()
-            if ports:
-                return jsonify({"ports": ports})
+            for port in ports:
+                if port[1] != "null":
+                    return jsonify({"ports": ports})
     return jsonify({"this": "doesn't work"})
 
 

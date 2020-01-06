@@ -14,7 +14,7 @@ def TCP_connect(ip, port_number):
         if TCPsocket.connect:
             port_number = str(port_number)
             services = port_reader(port_number)
-            # print(port_number + ": " + services)
+            print(port_number + ": " + services)
             save(ip, port_number, services)
     except:
         pass

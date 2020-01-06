@@ -9,7 +9,7 @@ def schema(dbpath="scans.db"):
         sql = """ CREATE TABLE scans (
                 ip_address VARCHAR(15),
                 ports VARCHAR,
-                services VARCHAR
+                services VARCHAR NOT NULL
             );"""
         cursor.execute(sql)
 
