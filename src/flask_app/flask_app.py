@@ -12,14 +12,6 @@ def scan():
     data = loads(data)
     ip = data.get("ip_address")
     scan = check_output(["python", "port_scanner.py", ip]).decode()
-    scan = scan.split("\n")
-    # print(scan)
-    # ports = [scan.split(":")[0] for scan in scan]
-    for service in scan:
-        try:
-            print(service.split(":")[1])
-        except IndexError:
-            pass
     return jsonify({"scan": scan})
 
 
