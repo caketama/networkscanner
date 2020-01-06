@@ -1,8 +1,8 @@
-import sqlite3
+from sqlite3 import connect
 
 
 def save(ip, port, services):
-    with sqlite3.connect("scans.db") as connection:
+    with connect("scans.db") as connection:
         cursor = connection.cursor()
         SQL = """INSERT INTO scans (
         ip_address, ports, services) VALUES (?, ?, ?);"""

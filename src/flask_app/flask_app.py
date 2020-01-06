@@ -1,14 +1,25 @@
 from flask import Flask, jsonify, request
 from json import loads
 from subprocess import check_output
+from sqlite3 import connect
 # from data import save_port
 
 app = Flask(__name__)
 
 
-@app.route("/api/get_scans", methods=["GET"])
+@app.route("/api/get_scans", methods=["POST"])
 def get_scans():
-    pass
+    data = request.data
+    data = loads(data)
+    ip = data.get("ip_address")
+    if ip:
+        with connect("scans.db") as connection:
+            cursor = connection.cursor()
+            SQL = """SELECT ports FROM scans WHERE ip_address=?"""
+            ports = cursor.execute(SQL, (ip,)).fetchall()
+            if ports:
+                return jsonify({"ports": ports})
+    return jsonify({"this": "doesn't work"})
 
 
 @app.route("/api/post_scans", methods=["POST"])
