@@ -3,8 +3,6 @@ from json import loads
 from subprocess import check_output
 from sqlite3 import connect
 
-# from data import save_port
-
 app = Flask(__name__)
 
 
@@ -19,10 +17,7 @@ def get_scans():
             SQL = """SELECT ports, services FROM scans
             WHERE ip_address=?"""
             ports = cursor.execute(SQL, (ip,)).fetchall()
-            for port in ports:
-                if port[1] != "null":
-                    return jsonify({"ports": ports})
-    return jsonify({"this": "doesn't work"})
+            return jsonify({"ports": ports})
 
 
 @app.route("/api/post_scans", methods=["POST"])
@@ -35,8 +30,9 @@ def add_scans():
     data = request.data
     data = loads(data)
     ip = data.get("ip_address")
-    scan = check_output(["python", "port_scanner.py", ip]).decode()
-    return jsonify({"scan": scan})
+    if ip:
+        check_output(["python", "port_scanner.py", ip]).decode()
+    return jsonify({"scan": "worked"})
 
 
 if __name__ == "__main__":

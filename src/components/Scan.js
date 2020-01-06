@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Text, Flex, Box } from "rebass";
 import { Input } from "@rebass/forms";
+import ScanResult from './ScanResult'
 
 const Scan = () => {
   const [error, setError] = useState(false);
@@ -8,7 +9,7 @@ const Scan = () => {
   const sendScan = async () => {
     setError(false);
     try {
-      const endpoint = "http://localhost:5000/api/scan";
+      const endpoint = "http://localhost:5000/api/add_scan";
       const data = { ip_address: ip };
       console.log(data);
       const configs = {
@@ -39,6 +40,7 @@ const Scan = () => {
         <Input type="text" onChange={e => setIp(e.target.value)} />
         <button onClick={e => sendScan()}> SCAN </button>
         <Box width={1 / 3}></Box>
+        <ScanResult />
       </Text>
     </Flex>
   );
