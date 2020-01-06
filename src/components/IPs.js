@@ -1,10 +1,10 @@
 import React from "react";
-import { Text } from "rebass";
+import { Text, Flex } from "rebass";
 
 const IPs = () => {
   return (
-    <Text color="white" fontSize={6}>
-      IPs Scanned
+    <Text color="#36f300" fontSize={6}>
+      IP
     </Text>
   );
 };
