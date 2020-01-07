@@ -3,9 +3,11 @@ import { Text, Flex } from "rebass";
 
 const Services = () => {
   return (
-      <Text color="#36f300"fontSize={6}>
-        Services
-      </Text>
+    <Flex>
+    <Text color="#36f300" fontSize={6}>
+      Services
+    </Text>
+    </Flex>
   );
 };
 

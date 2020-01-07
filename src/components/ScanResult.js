@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, Flex, Box } from "rebass";
 import IPs from "./IPs";
 import Ports from "./Ports";
 import Services from "./Services";
 
-const ScanResult = () => {
+const ScanResult = props => {
+  const [scan, setScan] = useState([]);
   return (
     <Flex
       sx={{

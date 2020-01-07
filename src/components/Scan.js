@@ -20,7 +20,7 @@ const Scan = () => {
       };
       const res = await fetch(endpoint, configs);
       const ip_address = await res.json();
-      console.log(res);
+      console.log(ip);
       if (ip_address) {
         setIp(ip_address);
       } else {
