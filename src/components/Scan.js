@@ -32,33 +32,6 @@ const Scan = props => {
       console.log(error);
     }
   };
-  const getScan = async () => {
-    try {
-      const endpoint = "http://localhost:5000/api/get_scans";
-      const data = {
-        ip_address: ip,
-      };
-      const configs = {
-        method: "POST",
-        body: JSON.stringify(data),
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" }
-      };
-      console.log(data);
-      const res = await fetch(endpoint, configs);
-      console.log(res);
-      const json_res = await res.json();
-      if (json_res) {
-        setScan(json_res);
-        console.log("success");
-      } else {
-        console.log("SQL ERROR");
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  getScan()
   return (
     <Flex>
       <Box width={1 / 3}></Box>

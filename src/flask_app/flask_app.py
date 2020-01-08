@@ -22,15 +22,19 @@ def get_ip():
 def add_scans():
     data = request.data
     data = loads(data)
+    # print(type(data))
     ip = data.get("ip_address")
+    print(type(ip))
     if ip:
         scan = check_output(["python", "port_scanner.py", ip]).decode()
+        print(scan)
         if scan:
             with connect("scans.db") as connection:
                 cursor = connection.cursor()
                 SQL = """SELECT ip_address, ports, services FROM scans
                 WHERE ip_address=?"""
                 scans = cursor.execute(SQL, (ip,)).fetchall()
+                # print(scans)
             return jsonify({"scan": scans})
         else:
             return jsonify({"error": "fix me"})
