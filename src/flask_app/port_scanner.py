@@ -35,12 +35,3 @@ def scan_ports(host_ip, time_out=2):
     # Locking the main thread until all threads complete
     for thread in range(10000):
         threads[thread].join()
-
-
-def main():
-    host_ip = argv[1]
-    scan_ports(host_ip)
-
-
-if __name__ == "__main__":
-    main()
