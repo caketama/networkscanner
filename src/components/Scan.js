@@ -6,7 +6,7 @@ import ScanResult from './ScanResult'
 const Scan = props => {
   const [error, setError] = useState(false);
   const [scan, setScan] = useState([]);
-  const [ip, setIp] = useState("");
+  const [ip, setIp] = useState("127.0.0.1");
   const sendScan = async () => {
     setError(false);
     try {
