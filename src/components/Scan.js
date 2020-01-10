@@ -34,10 +34,6 @@ const Scan = props => {
     }
   };
 
-  function setOurIp(newIp) {
-    console.log(ip)
-    setIp(newIp)
-  }
 
   return (
     <Flex>
