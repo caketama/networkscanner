@@ -3,9 +3,11 @@ import { Text, Flex, Box } from "rebass";
 
 const Services = () => {
   return (
-    <Box>
+    <Flex>
+      <Box mx="auto">
       <Text color="white">Services</Text>
-    </Box>
+        </Box>
+      </Flex>
   );
 };
 

@@ -3,9 +3,11 @@ import { Text, Flex, Box } from "rebass";
 
 const IPs = () => {
   return (
-      <Box>
+    <Flex>
+      <Box mx="auto">
         <Text color="white">IP</Text>
-      </Box>
+        </Box>
+    </Flex>
   );
 };
 

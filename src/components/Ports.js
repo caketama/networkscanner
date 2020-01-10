@@ -4,7 +4,7 @@ import { Text, Flex, Box } from "rebass";
 const Ports = () => {
   return (
     <Flex>
-      <Box>
+      <Box mx="auto">
         <Text color="white">Ports</Text>
       </Box>
     </Flex>

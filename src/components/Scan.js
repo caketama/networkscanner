@@ -36,7 +36,12 @@ const Scan = () => {
 
   let IP = scan.map(IP => {
     return (
-      <Box>
+      <Box
+        sx={{
+          color: "white",
+          justifyContent: "center"
+        }}
+      >
         <p>{IP[0]}</p>
       </Box>
     );
@@ -44,42 +49,49 @@ const Scan = () => {
 
   let port = scan.map(port => {
     return (
-      <Box>
-        <p>{port[1]}</p>
+      <Box
+        sx={{
+          color: "white",
+          justifyContent: "center"
+        }}
+      >
+        <Text>{port[1]}</Text>
       </Box>
     );
   });
   let services = scan.map(services => {
     return (
-      <Box>
-        <p>{services[2]}</p>
+      <Box
+        sx={{
+          color: "white",
+          justifyContent: "center"
+        }}
+      >
+        <Text>{services[2]}</Text>
       </Box>
     );
   });
 
   return (
     <Flex>
+      <Box width={1 / 3}></Box>
       <Box
-        width={1 / 3}
+        width={1 / 2}
         sx={{
           color: "white"
         }}
       >
-        <Text>Scan all the things!!</Text>
+        <Text fontSize={6}>Scan all the things!!</Text>
         <Input type="text" onChange={e => setIp(e.target.value)} />
         <button onClick={e => sendScan()}> SCAN </button>
-        <Box mx="auto">
-          <IPs />
-          {IP}
-        </Box>
-          <Ports />
-        <Box width={1/3}>
-          {port}
-        </Box>
+        <IPs />
+        {IP[0]}
+        {console.log(scan)}
+        <Ports />
+        {port}
         <Services />
-      <Box color="white">
-    {services}
-        </Box></Box>
+        {services}
+      </Box>
     </Flex>
   );
 };

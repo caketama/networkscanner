@@ -1,11 +1,22 @@
 from flask import Flask, jsonify, request
-from json import loads
 from subprocess import run
 from sqlite3 import connect
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
+
+
+@app.route("/api/get_ip", methods=["POST"])
+def get_ip():
+    data = request.get_json()
+    ip = data.get("ip_address")
+    if ip:
+        with connect("scans.db") as connection:
+            cursor = connection.cursor()
+            SQL = """SELECT ip_address FROM scans WHERE ip_address=?"""
+            ip = cursor.execute(SQL, (ip,)).fetchone()
+        return jsonify({"IP": ip})
 
 
 @app.route("/api/add_scan", methods=["POST"])
