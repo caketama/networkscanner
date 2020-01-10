@@ -11,7 +11,6 @@ CORS(app)
 def add_scans():
     data = request.get_json()
     ip = data.get("ip_address")
-    print(ip)
     if ip:
         run(["python", "port_scanner.py", ip])
         with connect("scans.db") as connection:
@@ -19,7 +18,6 @@ def add_scans():
             SQL = """SELECT ip_address, ports, services FROM scans
             WHERE ip_address=?"""
             scans = cursor.execute(SQL, (ip,)).fetchall()
-            print(scans)
             return jsonify({"scan": scans})
     else:
         return jsonify({"error": "fix me"})
