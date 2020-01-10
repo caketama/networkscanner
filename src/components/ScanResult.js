@@ -4,19 +4,17 @@ import IPs from "./IPs";
 import Ports from "./Ports";
 import Services from "./Services";
 
-const ScanResult = props => {
+const ScanResult = () => {
   return (
     <Flex
       sx={{
         color: "white",
-        fontSize: 6,
-        justifyContent: "center"
+        fontsize: 6,
+        justifycontent: "center"
       }}
     >
       <IPs />
-      <Box mx="auto" />
       <Ports />
-      <Box mx="auto" />
       <Services />
     </Flex>
   );

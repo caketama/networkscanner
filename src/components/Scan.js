@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Text, Flex, Box } from "rebass";
 import { Input } from "@rebass/forms";
 import ScanResult from "./ScanResult";
-import IPs from "./IPs"
+import IPs from "./IPs";
+import Ports from "./Ports";
+import Services from "./Services";
 
-const Scan = props => {
+const Scan = () => {
   const [error, setError] = useState(false);
   const [scan, setScan] = useState([]);
   const [ip, setIp] = useState("127.0.0.1");
@@ -32,26 +34,52 @@ const Scan = props => {
     }
   };
 
-  let ipAddress = scan.map(ip => {
+  let IP = scan.map(IP => {
     return (
-      <div>
-        <p>{ip[2]}</p>
-      </div>
+      <Box>
+        <p>{IP[0]}</p>
+      </Box>
+    );
+  });
+
+  let port = scan.map(port => {
+    return (
+      <Box>
+        <p>{port[1]}</p>
+      </Box>
+    );
+  });
+  let services = scan.map(services => {
+    return (
+      <Box>
+        <p>{services[2]}</p>
+      </Box>
     );
   });
 
   return (
     <Flex>
-      <Box width={1 / 3}></Box>
-      <Text color="white" fontSize={6}>
-        <Box width={1 / 3}></Box>
-        Scan all the things!!
+      <Box
+        width={1 / 3}
+        sx={{
+          color: "white"
+        }}
+      >
+        <Text>Scan all the things!!</Text>
         <Input type="text" onChange={e => setIp(e.target.value)} />
         <button onClick={e => sendScan()}> SCAN </button>
-        <Box width={1 / 3}></Box>
-        <IPs/>
-        {ipAddress}
-      </Text>
+        <Box mx="auto">
+          <IPs />
+          {IP}
+        </Box>
+          <Ports />
+        <Box width={1/3}>
+          {port}
+        </Box>
+        <Services />
+      <Box color="white">
+    {services}
+        </Box></Box>
     </Flex>
   );
 };

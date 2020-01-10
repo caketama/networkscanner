@@ -1,13 +1,11 @@
 import React from "react";
-import { Text, Flex } from "rebass";
+import { Text, Flex, Box } from "rebass";
 
 const Services = () => {
   return (
-    <Flex>
-    <Text color="#36f300" fontSize={6}>
-      Services
-    </Text>
-    </Flex>
+    <Box>
+      <Text color="white">Services</Text>
+    </Box>
   );
 };
 

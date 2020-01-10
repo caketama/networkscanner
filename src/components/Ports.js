@@ -1,11 +1,13 @@
 import React from "react";
-import { Text } from "rebass";
+import { Text, Flex, Box } from "rebass";
 
 const Ports = () => {
   return (
-      <Text color="#36f300"fontSize={6}>
-        Ports
-      </Text>
+    <Flex>
+      <Box>
+        <Text color="white">Ports</Text>
+      </Box>
+    </Flex>
   );
 };
 

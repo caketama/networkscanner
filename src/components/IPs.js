@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Text } from "rebass";
+import { Text, Flex, Box } from "rebass";
 
-const IPs = props => {
+const IPs = () => {
   return (
-    <Text color="#36f300" fontSize={6}>
-      IP
-    </Text>
+      <Box>
+        <Text color="white">IP</Text>
+      </Box>
   );
 };
 
