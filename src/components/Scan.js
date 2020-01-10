@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { Text, Flex, Box } from "rebass";
 import { Input } from "@rebass/forms";
 import ScanResult from "./ScanResult";
+import IPs from "./IPs"
 
 const Scan = props => {
   const [error, setError] = useState(false);
   const [scan, setScan] = useState([]);
-  const [ip, setIp] = useState("192.168.56.4");
+  const [ip, setIp] = useState("127.0.0.1");
   const sendScan = async () => {
     setError(false);
     try {
@@ -31,8 +32,12 @@ const Scan = props => {
     }
   };
 
-  let scanResult = scan.map(scans => {
-    return <p>{scans}</p>;
+  let ipAddress = scan.map(ip => {
+    return (
+      <div>
+        <p>{ip[2]}</p>
+      </div>
+    );
   });
 
   return (
@@ -44,7 +49,8 @@ const Scan = props => {
         <Input type="text" onChange={e => setIp(e.target.value)} />
         <button onClick={e => sendScan()}> SCAN </button>
         <Box width={1 / 3}></Box>
-    {scanResult}
+        <IPs/>
+        {ipAddress}
       </Text>
     </Flex>
   );
