@@ -1,6 +1,5 @@
 from flask import Flask, jsonify, request
 from json import loads
-import json
 from subprocess import run
 from sqlite3 import connect
 from flask_cors import CORS
@@ -22,11 +21,11 @@ def get_ip():
 
 @app.route("/api/add_scan", methods=["POST"])
 def add_scans():
-    data = request.data
-    print(request.mimetype)
-    print(type(data))
-    print(data)
-    data = json.loads(data)
+    data = request.get_json()
+    # print(request.mimetype)
+    # print(type(data))
+    # print(data)
+    # data = json.loads(data)
     ip = data.get("ip_address")
     if ip:
         scan = run(["python", "port_scanner.py", ip])

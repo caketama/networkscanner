@@ -4,40 +4,36 @@ import { Input } from "@rebass/forms";
 import ScanResult from './ScanResult'
 
 const Scan = props => {
-  const [error, setError] = useState(false);
-  const [scan, setScan] = useState([]);
-  const [ip, setIp] = useState("");
+  const [scans, setScans] = useState([]);
+  const [ip, setIp] = useState("127.0.0.1");
   const sendScan = async () => {
-    setError(false);
     try {
-      const endpoint = "http://localhost:5000/api/add_scan";
-      const data = { ip_address: ip }
-      console.log(data)
+      const endpoint = "http://localhost:5000/api/scans";
+      const data = { ip : ip };
       const configs = {
         method: "POST",
         body: JSON.stringify(data),
         mode: "cors",
-        headers: { 'Content-Type': 'application/json' }
+        headers: { "Content-Type": "application/json" }
       };
-      const res = await fetch(endpoint, configs);
-      console.log(res)
-      const ip_address = await res.json();
-      console.log(ip_address);
+      const response = await fetch(endpoint, configs);
+      console.log(response.json);
+      const ip_address = await response.json();
+      console.log(ip_address)
       if (ip_address) {
-        setIp(ip_address);
+        setIp(ip_address)
+        console.log("this is working")
       } else {
-        setError(true);
+        console.log("SQL ERROR")
       }
     } catch (error) {
-      setError(true);
       console.log(error);
     }
   };
-
-  function setOurIp(newIp) {
-    console.log(ip)
-    setIp(newIp)
-  }
+  let mapScans = scans.map(scan => {
+    return (
+      <p>{scans}</p>)
+  })
 
   return (
     <Flex>

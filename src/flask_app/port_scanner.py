@@ -16,6 +16,7 @@ def TCP_connect(ip, port_number, time_out=2):
             services = port_reader(port_number)
             print(port_number + ": " + services)
             # save(ip, port_number, services)
+            # print("works")
     except:
         pass
 
@@ -35,3 +36,12 @@ def scan_ports(host_ip, time_out=2):
     # Locking the main thread until all threads complete
     for thread in range(10000):
         threads[thread].join()
+
+
+def main():
+    host_ip = argv[1]
+    scan_ports(host_ip)
+
+
+if __name__ == "__main__":
+    main()
