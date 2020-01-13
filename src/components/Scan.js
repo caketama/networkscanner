@@ -52,11 +52,12 @@ const Scan = () => {
       <Flex>
         <Box
           sx={{
+            p: 3,
             justifyContent: "center",
             color: "white"
           }}
         >
-          <p><Text>{port[1]}</Text></p>
+      {port[1]}
         </Box>
       </Flex>
     );
@@ -89,16 +90,14 @@ const Scan = () => {
         <button onClick={e => sendScan()}> SCAN </button>
         <Box width={1 / 3}></Box>
         <Flex>
-          <Box width={1 / 3}></Box>
           <IPs />
-          <Box width={1 / 3}></Box>
+          <Box width={1/3}></Box>
           {IP[0]}
           <Ports />
-          <Box width={1 / 3}></Box>
+          <Box width={1/3}></Box>
           {port}
           <Services />
           {services}
-          <Box width={1 / 3}></Box>
         </Flex>
       </Box>
     </Flex>
