@@ -36,46 +36,42 @@ const Scan = () => {
 
   let IP = scan.map(IP => {
     return (
-      <Flex>
-      <Box
-        width={1/3}
-        sx={{
-          color: "white"
-        }}
-      >
-        <p>{IP[0]}</p>
-      </Box>
-        </Flex>
+        <Text
+          sx={{
+            justifyContent: "center",
+            color: "white"
+          }}
+        >
+          <p>{IP[0]}</p>
+        </Text>
     );
   });
 
   let port = scan.map(port => {
     return (
       <Flex>
-      <Box
-        width={1/3}
-        sx={{
-          color: "white"
-        }}
-      >
-        <Text>{port[1]}</Text>
-      </Box>
-        </Flex>
+        <Box
+          sx={{
+            justifyContent: "center",
+            color: "white"
+          }}
+        >
+          <p><Text>{port[1]}</Text></p>
+        </Box>
+      </Flex>
     );
   });
 
   let services = scan.map(services => {
     return (
-      <Flex>
-      <Box
-        width={1/3}
-        sx={{
-          color: "white"
-        }}
-      >
-        <Text>{services[2]}</Text>
-      </Box>
-        </Flex>
+      <Text
+          sx={{
+            justifyContent: "center",
+            color: "white"
+          }}
+        >
+          <p>{services[2]}</p>
+        </Text>
     );
   });
 
@@ -91,16 +87,18 @@ const Scan = () => {
         <Text fontSize={6}>Scan all the things!!</Text>
         <Input type="text" onChange={e => setIp(e.target.value)} />
         <button onClick={e => sendScan()}> SCAN </button>
+        <Box width={1 / 3}></Box>
         <Flex>
           <Box width={1 / 3}></Box>
           <IPs />
-          {IP[0]}
           <Box width={1 / 3}></Box>
+          {IP[0]}
           <Ports />
+          <Box width={1 / 3}></Box>
           {port}
-          <Box width={1/3}></Box>
           <Services />
           {services}
+          <Box width={1 / 3}></Box>
         </Flex>
       </Box>
     </Flex>

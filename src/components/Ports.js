@@ -3,11 +3,10 @@ import { Text, Flex, Box } from "rebass";
 
 const Ports = () => {
   return (
-    <Flex>
-      <Box mx="auto">
-        <Text color="white">Ports</Text>
-      </Box>
-    </Flex>
+        <Text sx={{
+          color: "white",
+          fontSize: 5 
+        }}>Ports</Text>
   );
 };
 
