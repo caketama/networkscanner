@@ -36,39 +36,46 @@ const Scan = () => {
 
   let IP = scan.map(IP => {
     return (
+      <Flex>
       <Box
+        width={1/3}
         sx={{
-          color: "white",
-          justifyContent: "center"
+          color: "white"
         }}
       >
         <p>{IP[0]}</p>
       </Box>
+        </Flex>
     );
   });
 
   let port = scan.map(port => {
     return (
+      <Flex>
       <Box
+        width={1/3}
         sx={{
-          color: "white",
-          justifyContent: "center"
+          color: "white"
         }}
       >
         <Text>{port[1]}</Text>
       </Box>
+        </Flex>
     );
   });
+
   let services = scan.map(services => {
     return (
+      <Flex>
       <Box
+        width={1/3}
         sx={{
-          color: "white",
-          justifyContent: "center"
+          color: "white"
         }}
       >
         <Text>{services[2]}</Text>
       </Box>
+        </Flex>
     );
   });
 
@@ -76,7 +83,7 @@ const Scan = () => {
     <Flex>
       <Box width={1 / 3}></Box>
       <Box
-        width={1 / 2}
+        width={1 / 3}
         sx={{
           color: "white"
         }}
@@ -84,13 +91,17 @@ const Scan = () => {
         <Text fontSize={6}>Scan all the things!!</Text>
         <Input type="text" onChange={e => setIp(e.target.value)} />
         <button onClick={e => sendScan()}> SCAN </button>
-        <IPs />
-        {IP[0]}
-        {console.log(scan)}
-        <Ports />
-        {port}
-        <Services />
-        {services}
+        <Flex>
+          <Box width={1 / 3}></Box>
+          <IPs />
+          {IP[0]}
+          <Box width={1 / 3}></Box>
+          <Ports />
+          {port}
+          <Box width={1/3}></Box>
+          <Services />
+          {services}
+        </Flex>
       </Box>
     </Flex>
   );
