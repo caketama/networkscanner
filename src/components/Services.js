@@ -3,6 +3,7 @@ import { Text, Flex, Box } from "rebass";
 
 const Services = () => {
   return (
+    <Box mx="auto">
     <Text
       sx={{
         color: "white",
@@ -11,6 +12,7 @@ const Services = () => {
     >
       Services
     </Text>
+      </Box>
   );
 };
 

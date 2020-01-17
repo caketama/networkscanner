@@ -9,7 +9,7 @@ import Services from "./Services";
 const Scan = () => {
   const [error, setError] = useState(false);
   const [scan, setScan] = useState([]);
-  const [ip, setIp] = useState("127.0.0.1");
+  const [ip, setIp] = useState("192.168.56.4");
   const sendScan = async () => {
     setError(false);
     try {
@@ -73,9 +73,18 @@ const Scan = () => {
         <Text fontSize={6}>Scan all the things!!</Text>
         <Input type="text" onChange={e => setIp(e.target.value)} />
         <button onClick={e => sendScan()}> SCAN </button>
-        <IPs />
         <Box width={1 / 3}></Box>
-        {IP[0]}
+        <Flex flexWrap="row">
+          <IPs />
+          <Box mx="auto">
+          {IP}
+          </Box>
+          <Box mx="auto">
+          <Ports /> {port}</Box>
+          <Box mx="auto">
+          <Services /> {services}
+            </Box>
+        </Flex>
       </Box>
     </Flex>
   );
