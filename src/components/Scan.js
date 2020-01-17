@@ -35,25 +35,15 @@ const Scan = props => {
   };
 
   let IP = scan.map(IP => {
-    return (
-      <IPs ip={IP[0]}/>
-    );
+    return <IPs ip={IP[0]} />;
   });
 
   let port = scan.map(port => {
-    return (
-      <Text>
-        <p>{port[1]}</p>
-      </Text>
-    );
+    return <Ports port={port[1]} />;
   });
 
   let services = scan.map(services => {
-    return (
-      <Text>
-        <p>{services[2]}</p>
-      </Text>
-    );
+    return <Services services={services[2]} />;
   });
 
   return (
@@ -74,15 +64,16 @@ const Scan = props => {
         <Button onClick={e => sendScan()}> SCAN </Button>
         <Box width={1 / 2}></Box>
         <Flex>
-          <Box mx="auto">
-            <Text fontSize={5}>IPs</Text>
-            <div>{IP[0]}</div>
+          <Box width={1 / 3}>
+            <Text fontSize={5}>IP</Text>
+            {IP[0]}
           </Box>
-          <Box mx="auto">
-            {" "}
-            <Ports /> {port}
+          <Box width={1 / 3}>
+            <Text fontSize={5}>Ports</Text>
+            {port}
           </Box>
-          <Box mx="auto">
+          <Box width={1 / 3}>
+            <Text fontSize={5}>Services</Text>
             <Services /> {services}
           </Box>
         </Flex>

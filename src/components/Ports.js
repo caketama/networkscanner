@@ -1,12 +1,9 @@
 import React from "react";
 import { Text, Flex, Box } from "rebass";
 
-const Ports = () => {
+const Ports = props => {
   return (
-        <Text sx={{
-          color: "white",
-          fontSize: 5 
-        }}>Port</Text>
+    <div><p>{props.port}</p></div>
   );
 };
 export default Ports;
