@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Text, Flex, Box } from "rebass";
+import { Text, Flex, Box, Button } from "rebass";
 import { Input } from "@rebass/forms";
 import ScanResult from "./ScanResult";
 import IPs from "./IPs";
 import Ports from "./Ports";
 import Services from "./Services";
 
-const Scan = () => {
+const Scan = props => {
   const [error, setError] = useState(false);
   const [scan, setScan] = useState([]);
   const [ip, setIp] = useState("192.168.56.4");
@@ -36,9 +36,7 @@ const Scan = () => {
 
   let IP = scan.map(IP => {
     return (
-      <Text>
-        <p>{IP[0]}</p>
-      </Text>
+      <IPs ip={IP[0]}/>
     );
   });
 
@@ -73,12 +71,16 @@ const Scan = () => {
       >
         <Text fontSize={6}>Scan all the things!!</Text>
         <Input type="text" onChange={e => setIp(e.target.value)} />
-        <button onClick={e => sendScan()}> SCAN </button>
+        <Button onClick={e => sendScan()}> SCAN </Button>
         <Box width={1 / 2}></Box>
-        <Flex><Box mx="auto">
-          <IPs />
-          {IP[0]}</Box>
-          <Box mx="auto"> <Ports /> {port}
+        <Flex>
+          <Box mx="auto">
+            <Text fontSize={5}>IPs</Text>
+            <div>{IP[0]}</div>
+          </Box>
+          <Box mx="auto">
+            {" "}
+            <Ports /> {port}
           </Box>
           <Box mx="auto">
             <Services /> {services}
