@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Flex } from "rebass";
+import Link from "./StyledLinks"
 
 const Header = () => {
   return (
