@@ -3,9 +3,9 @@ import { Text, Flex, Box } from "rebass";
 
 const Services = props => {
   return (
-    <Box p={1} >
-      {props.services}
-    </Box>
+    <Box mx="auto">
+        <Text p={1}> {props.services}</Text>
+      </Box>
   );
 };
 

@@ -53,15 +53,12 @@ const Scan = props => {
         color: "white"
       }}
     >
-      <Box
-        width={1 / 2}
-        sx={{
-          color: "white"
-        }}
-      >
+      <Box width={1 / 2} color="white">
         <Text fontSize={6}>Scan all the things!!</Text>
         <Input type="text" onChange={e => setIp(e.target.value)} />
-        <Button onClick={e => sendScan()}> SCAN </Button>
+        <Button variant="outline" color="white" p={2} onClick={e => sendScan()}>
+          SCAN
+        </Button>
         <Box width={1 / 2}></Box>
         <Flex>
           <Box width={1 / 3}>
