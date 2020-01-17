@@ -37,10 +37,7 @@ const Scan = () => {
   let IP = scan.map(IP => {
     return (
       <Text>
-        <p>
-          <br />
-          {IP[0]}
-        </p>
+        <p>{IP[0]}</p>
       </Text>
     );
   });
@@ -62,10 +59,14 @@ const Scan = () => {
   });
 
   return (
-    <Flex color="white">
-      <Box width={1 / 3}></Box>
+    <Flex
+      sx={{
+        justifyContent: "center",
+        color: "white"
+      }}
+    >
       <Box
-        width={1 / 3}
+        width={1 / 2}
         sx={{
           color: "white"
         }}
@@ -73,17 +74,15 @@ const Scan = () => {
         <Text fontSize={6}>Scan all the things!!</Text>
         <Input type="text" onChange={e => setIp(e.target.value)} />
         <button onClick={e => sendScan()}> SCAN </button>
-        <Box width={1 / 3}></Box>
-        <Flex flexWrap="row">
+        <Box width={1 / 2}></Box>
+        <Flex><Box mx="auto">
           <IPs />
-          <Box mx="auto">
-          {IP}
+          {IP[0]}</Box>
+          <Box mx="auto"> <Ports /> {port}
           </Box>
           <Box mx="auto">
-          <Ports /> {port}</Box>
-          <Box mx="auto">
-          <Services /> {services}
-            </Box>
+            <Services /> {services}
+          </Box>
         </Flex>
       </Box>
     </Flex>
