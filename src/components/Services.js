@@ -1,9 +1,15 @@
 import React from "react";
-import { Text } from "rebass";
+import { Text, Flex, Box } from "rebass";
 
 const Services = props => {
   return (
-        <Text p={1}> {props.services}</Text>
+    <Flex flexWrap="flex-start">
+      <Box>
+      <Text margin="5px" fontSize={3}>
+        {props.services}
+      </Text>
+      </Box>
+    </Flex>
   );
 };
 

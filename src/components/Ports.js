@@ -1,11 +1,13 @@
 import React from "react";
-import { Text } from "rebass";
+import { Text, Box } from "rebass";
 
 const Ports = props => {
   return (
-    <Text p={2} fontSize={2}>
-      {props.port}
-    </Text>
+    <Box>
+      <Text margin="10px" fontSize={3}>
+        {props.port}
+      </Text>
+      </Box>
   );
 };
 export default Ports;

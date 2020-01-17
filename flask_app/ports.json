@@ -2352,7 +2352,7 @@
             "udp": true
         },
         "2121": {
-            "description": "FTP proxy[citation needed]",
+            "description": "FTP proxy",
             "port": "2121",
             "status": "Unofficial",
             "tcp": true,
@@ -2443,7 +2443,7 @@
             "udp": false
         },
         "22": {
-            "description": "Secure Shell (SSH) — used for secure logins, file transfers (scp, sftp) and port forwarding",
+            "description": "Secure Shell (SSH)",
             "port": "22",
             "status": "Official",
             "tcp": true,
@@ -2617,7 +2617,7 @@
             "udp": true
         },
         "23": {
-            "description": "Telnet protocol—unencrypted text communications",
+            "description": "Telnet protocol",
             "port": "23",
             "status": "Official",
             "tcp": true,
@@ -2836,7 +2836,7 @@
             "udp": false
         },
         "25": {
-            "description": "Simple Mail Transfer Protocol (SMTP)—used for e-mail routing between mail servers",
+            "description": "Simple Mail Transfer Protocol",
             "port": "25",
             "status": "Official",
             "tcp": true,
@@ -4725,7 +4725,7 @@
             "udp": false
         },
         "443": {
-            "description": "Hypertext Transfer Protocol over TLS/SSL (HTTPS)",
+            "description": "HTTPS",
             "port": "443",
             "status": "Official",
             "tcp": true,
@@ -6168,7 +6168,7 @@
             "udp": false
         },
         "5900": {
-            "description": "Virtual Network Computing (VNC) remote desktop protocol (used by Apple Remote Desktop and others)",
+            "description": "Virtual Network Computing (VNC)",
             "port": "5900",
             "status": "Official",
             "tcp": true,
@@ -6217,14 +6217,14 @@
             "udp": false
         },
         "6000": {
-            "description": "X11—used between an X client and server over the network",
+            "description": "X11",
             "port": "6000",
             "status": "Official",
             "tcp": true,
             "udp": false
         },
         "6001": {
-            "description": "X11—used between an X client and server over the network",
+            "description": "X11",
             "port": "6001",
             "status": "Official",
             "tcp": false,
@@ -6706,7 +6706,7 @@
                 "udp": true
             },
             {
-                "description": "IRC SSL (Secure Internet Relay Chat)—often used",
+                "description": "IRC SSL ",
                 "port": "6679",
                 "status": "Unofficial",
                 "tcp": true,
@@ -6714,7 +6714,7 @@
             }
         ],
         "6697": {
-            "description": "IRC SSL (Secure Internet Relay Chat)—often used",
+            "description": "IRC SSL ",
             "port": "6697",
             "status": "Unofficial",
             "tcp": true,
@@ -7504,7 +7504,7 @@
             "udp": true
         },
         "80": {
-            "description": "Hypertext Transfer Protocol (HTTP)",
+            "description": "HTTP",
             "port": "80",
             "status": "Official [11]",
             "tcp": true,
@@ -7585,7 +7585,7 @@
             }
         ],
         "8009": {
-            "description": "ajp13—Apache JServ Protocol AJP Connector",
+            "description": "Apache JServ Protocol",
             "port": "8009",
             "status": "Unofficial",
             "tcp": true,
