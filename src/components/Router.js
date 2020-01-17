@@ -1,11 +1,11 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import PreviousScans from './PreviousScans'
-import Scan from './Scan'
+import Scanner from '../containers/Scanner'
 function Router() {
   return (
   <div>
-    <Route exact path="/" component={Scan} />
+    <Route exact path="/" component={Scanner} />
     <Route path="/previousscans" component={PreviousScans} />
   </div>
   )

@@ -3,7 +3,7 @@ import { Text, Flex, Box } from "rebass";
 
 const Ports = props => {
   return (
-    <Text lineHeight="body" p={2} fontSize={2}>
+    <Text p={2} fontSize={2}>
       {props.port}
     </Text>
   );
