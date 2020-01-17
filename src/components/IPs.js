@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Flex, Box } from "rebass";
+import { Text, Box } from "rebass";
 
 const IPs = props => {
   return (

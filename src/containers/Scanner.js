@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Text, Flex, Box, Button } from "rebass";
 import { Input } from "@rebass/forms";
-import ScanResult from "../components/ScanResult";
 import IPs from "../components/IPs";
 import Ports from "../components/Ports";
 import Services from "../components/Services";
