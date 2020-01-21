@@ -6,7 +6,7 @@ function Router() {
   return (
     <div>
       <Route exact path="/" component={Scanner} />
-      <Route path="/previousscans" component={PreviousScans} />
+      {/* <Route path="/previousscans" component={PreviousScans} /> */}
     </div>
   );
 }

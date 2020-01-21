@@ -47,7 +47,7 @@ const Scan = props => {
 
   return (
     <Flex color="white" justifyContent="center">
-      <Box width={1 / 2} margin="30px">
+      <Box width={1 / 2} margin="40px">
         <Text m={1} fontSize={6}>
           Scan all the things!!
         </Text>
