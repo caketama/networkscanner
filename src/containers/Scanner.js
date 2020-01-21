@@ -46,32 +46,32 @@ const Scan = props => {
   });
 
   return (
-    <Flex
-      sx={{
-        justifyContent: "center",
-        color: "white"
-      }}
-    >
-      <Box width={1 / 2} color="white">
+    <Flex color="white" justifyContent="center">
+      <Box width={1 / 2} margin="30px">
         <Text m={1} fontSize={6}>
           Scan all the things!!
         </Text>
-        <Input type="text" m={1} onChange={e => setIp(e.target.value)} />
+        <Input type="text" m={2} onChange={e => setIp(e.target.value)} />
         <Button variant="outline" m={2} color="white" onClick={e => sendScan()}>
           SCAN
         </Button>
-        <Box width={1 / 2}></Box>
         <Flex>
           <Box width={1 / 3}>
-            <Text fontSize={5}>IP</Text>
+            <Text p={2} m={1} fontSize={5}>
+              IP
+            </Text>
             {IP[0]}
           </Box>
-          <Box width={1 / 3}>
-            <Text fontSize={5}>Ports</Text>
+          <Box p={2} width={1 / 3}>
+            <Text m={1} fontSize={5}>
+              Ports
+            </Text>
             {port}
           </Box>
-          <Box width={1 / 3}>
-            <Text fontSize={5}>Services</Text>
+          <Box p={2} width={1 / 3}>
+            <Text m={1} fontSize={5}>
+              Services
+            </Text>
             <Services /> {services}
           </Box>
         </Flex>

@@ -11,6 +11,7 @@ function App() {
     <ThemeProvider theme={preset}>
     <div className="App">
       <BrowserRouter>
+        <title>Scan all the things!!</title>
         <Header />
         <Router />
       </BrowserRouter>

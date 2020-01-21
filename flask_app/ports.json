@@ -998,7 +998,7 @@
             "udp": true
         },
         "139": {
-            "description": "NetBIOS NetBIOS Session Service",
+            "description": "NetBIOS",
             "port": "139",
             "status": "Official",
             "tcp": true,
@@ -6168,7 +6168,7 @@
             "udp": false
         },
         "5900": {
-            "description": "Virtual Network Computing (VNC)",
+            "description": "Virtual Network Computing",
             "port": "5900",
             "status": "Official",
             "tcp": true,
