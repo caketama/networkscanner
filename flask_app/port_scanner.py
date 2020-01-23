@@ -2,7 +2,7 @@ import socket
 import threading
 from port_reader import port_reader
 from sys import argv
-from data import save
+from data import check_database
 
 
 def TCP_connect(ip, port_number, time_out=2):
@@ -15,7 +15,8 @@ def TCP_connect(ip, port_number, time_out=2):
             port_number = str(port_number)
             services = port_reader(port_number)
             # print(port_number + ": " + services)
-            save(ip, port_number, services)
+            check_database(ip, port_number, services)
+            print("this works")
     except:
         pass
 

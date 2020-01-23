@@ -1,8 +1,10 @@
-import sqlite3
+from sqlite3 import connect
+
+DBPATH = "scans.db"
 
 
-def schema(dbpath="scans.db"):
-    with sqlite3.connect(dbpath) as conn:
+def schema(dbpath=DBPATH):
+    with connect(dbpath) as conn:
         cursor = conn.cursor()
         DROPSQL = "DROP TABLE IF EXISTS {tablename};"
         cursor.execute(DROPSQL.format(tablename="scans"))
