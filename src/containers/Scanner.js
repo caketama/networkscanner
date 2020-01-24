@@ -58,25 +58,16 @@ const Scan = props => {
     <Flex color="white" justifyContent="center">
       <Box width={1 / 2} margin="40px">
         <Text m={1} fontSize={6}>
-          Scan all the things!!
+          Enter IP:
         </Text>
 
         <form onSubmit={e => onFormSubmit(e)}>
           <Input type="text" m={2} onChange={e => setIp(e.target.value)} />
-          <Button variant="outline" m={2} color="white" type="submit">
+          <Button onClick={e => scanReset()} variant="outline" m={2} color="white" type="submit">
             SCAN
           </Button>
         </form>
 
-        <Button
-          variant="outline"
-          m={2}
-          color="white"
-          type="submit"
-          onClick={e => scanReset()}
-        >
-          RESET
-        </Button>
         <Flex>
           <Box width={1 / 3}>
             <Text p={2} m={1} fontSize={5}>

@@ -8994,7 +8994,7 @@
             "udp": false
         },
         "995": {
-            "description": "Post Office Protocol 3 over TLS/SSL (POP3S)",
+            "description": "Post Office Protocol 3 (POP3)",
             "port": "995",
             "status": "Official",
             "tcp": true,
