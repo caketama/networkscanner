@@ -8,7 +8,11 @@ def check_services(dpath=DBPATH):
         cursor = connection.cursor()
         SQL = """SELECT services FROM scans;"""
         services = cursor.execute(SQL,).fetchall()
-        print(services)
+
+    for service in services:
+        service = service[0]
+        url = f"https://duckduckgo.com/?q={service}"
+        print(url)
 
 
 check_services()

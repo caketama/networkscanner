@@ -8,7 +8,7 @@ import Services from "../components/Services";
 const Scan = props => {
   const [error, setError] = useState(false);
   const [scan, setScan] = useState([]);
-  const [ip, setIp] = useState("192.168.56.4");
+  const [ip, setIp] = useState("192.168.56.10");
   const sendScan = async () => {
     setError(false);
     try {
@@ -33,6 +33,10 @@ const Scan = props => {
     }
   };
 
+  const scanReset = () => {
+    setScan([]);
+  };
+
   let IP = scan.map(IP => {
     return <IPs ip={IP[0]} />;
   });
@@ -44,6 +48,11 @@ const Scan = props => {
   let services = scan.map(services => {
     return <Services services={services[2]} />;
   });
+  // Search button works with keyboard ENTER or RETURN
+  const onFormSubmit = e => {
+    e.preventDefault();
+    sendScan();
+  };
 
   return (
     <Flex color="white" justifyContent="center">
@@ -51,9 +60,22 @@ const Scan = props => {
         <Text m={1} fontSize={6}>
           Scan all the things!!
         </Text>
-        <Input type="text" m={2} onChange={e => setIp(e.target.value)} />
-        <Button variant="outline" m={2} color="white" onClick={e => sendScan()}>
-          SCAN
+
+        <form onSubmit={e => onFormSubmit(e)}>
+          <Input type="text" m={2} onChange={e => setIp(e.target.value)} />
+          <Button variant="outline" m={2} color="white" type="submit">
+            SCAN
+          </Button>
+        </form>
+
+        <Button
+          variant="outline"
+          m={2}
+          color="white"
+          type="submit"
+          onClick={e => scanReset()}
+        >
+          RESET
         </Button>
         <Flex>
           <Box width={1 / 3}>

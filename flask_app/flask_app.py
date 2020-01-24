@@ -6,8 +6,6 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-# TODO add error handling
-# TODO check for duplicate scans
 # TODO enter on scan
 # TODO ddg search for services
 

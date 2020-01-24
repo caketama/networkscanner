@@ -9,9 +9,9 @@ def schema(dbpath=DBPATH):
         DROPSQL = "DROP TABLE IF EXISTS {tablename};"
         cursor.execute(DROPSQL.format(tablename="scans"))
         sql = """ CREATE TABLE scans (
-                ip_address VARCHAR(15),
                 ports VARCHAR,
-                services VARCHAR NOT NULL
+                services VARCHAR NOT NULL,
+                ip_address VARCHAR(15)
             );"""
         cursor.execute(sql)
 
