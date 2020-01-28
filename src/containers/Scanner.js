@@ -37,6 +37,14 @@ const Scan = props => {
     setScan([]);
   };
 
+  const timeOut = e => {
+    e.disabled = true;
+    setTimeout((e) => {
+        e.disabled = false;
+      console.log("this worked");
+      }, 5000)
+  };
+
   let IP = scan.map(IP => {
     return <IPs ip={IP[0]} />;
   });
@@ -48,10 +56,11 @@ const Scan = props => {
   let services = scan.map(services => {
     return <Services services={services[2]} />;
   });
+
   // Search button works with keyboard ENTER or RETURN
   const onFormSubmit = e => {
     e.preventDefault();
-    sendScan();
+    timeOut(sendScan())
   };
 
   return (
@@ -63,7 +72,13 @@ const Scan = props => {
 
         <form onSubmit={e => onFormSubmit(e)}>
           <Input type="text" m={2} onChange={e => setIp(e.target.value)} />
-          <Button onClick={e => scanReset()} variant="outline" m={2} color="white" type="submit">
+          <Button
+            onClick={e => scanReset()}
+            variant="outline"
+            m={2}
+            color="white"
+            type="submit"
+          >
             SCAN
           </Button>
         </form>

@@ -11,7 +11,8 @@ def schema(dbpath=DBPATH):
         sql = """ CREATE TABLE scans (
                 ports VARCHAR,
                 services VARCHAR NOT NULL,
-                ip_address VARCHAR(15)
+                ip_address VARCHAR(15),
+                time INTEGER
             );"""
         cursor.execute(sql)
 

@@ -2836,7 +2836,7 @@
             "udp": false
         },
         "25": {
-            "description": "Simple Mail Transfer Protocol",
+            "description": "SMTP",
             "port": "25",
             "status": "Official",
             "tcp": true,
@@ -5830,7 +5830,7 @@
             "udp": false
         },
         "5432": {
-            "description": "PostgreSQL database system",
+            "description": "PostgreSQL",
             "port": "5432",
             "status": "Official",
             "tcp": true,

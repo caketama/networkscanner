@@ -2,7 +2,7 @@ import socket
 import threading
 from port_reader import port_reader
 from sys import argv
-from data import save, check_database
+from data import save
 
 
 def TCP_connect(ip, port_number, time_out=2):

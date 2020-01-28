@@ -26,5 +26,10 @@ def add_scans():
         return jsonify({"error": "fix me"})
 
 
+@app.route("/api/previous_scans", method=["POST"])
+def previous_scans():
+    pass
+
+
 if __name__ == "__main__":
     app.run(debug=True)
