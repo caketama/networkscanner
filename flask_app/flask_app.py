@@ -26,11 +26,11 @@ def add_scans():
         return jsonify({"error": "fix me"})
 
 
-@app.route("/api/previous_scans", methods=["POST"])
+@app.route("/api/previous_scans", methods=["GET"])
 def previous_scans():
     with connect("scans.db") as connection:
         cursor = connection.cursor()
-        SQL = """SELECT * from scans WHERE time < strftime('%s');"""
+        SQL = """SELECT * FROM scans WHERE time < strftime('%s');"""
         scan = cursor.execute(SQL, ).fetchall()
         return jsonify({"scan": scan})
     return jsonify({"error": "fix me"})

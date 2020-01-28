@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Flex, Text } from "rebass";
+import { Flex, Text, Box } from "rebass";
 import IPs from "../components/IPs";
 import Ports from "../components/Ports";
 import Services from "../components/Services";
@@ -14,7 +14,7 @@ const PreviousScans = props => {
       const endpoint = "http://localhost:5000/api/previous_scans";
       const data = { ip_address: ip };
       const configs = {
-        method: "POST",
+        method: "GET",
         body: JSON.stringify(data),
         mode: "cors",
         headers: { "Content-Type": "application/json" }
@@ -30,7 +30,7 @@ const PreviousScans = props => {
       setError(true);
       console.log(error);
     }
-};
+  };
   let IP = scan.map(IP => {
     return <IPs ip={IP[0]} />;
   });
@@ -42,13 +42,28 @@ const PreviousScans = props => {
   let services = scan.map(services => {
     return <Services services={services[2]} />;
   });
-    return (
-      <Flex sx={{ justifyContent: "center" }}>
-        <Text color="#00FF00" fontSize={6}>
-          Previous Scans
-        </Text>
-      </Flex>
-    );
-  };
+  return (
+    <Flex color="#00FF00">
+        <Box width={1 / 3}>
+          <Text p={2} m={1} fontSize={5}>
+            IP
+          </Text>
+          {IP[0]}
+        </Box>
+        <Box p={2} width={1 / 3}>
+          <Text m={1} fontSize={5}>
+            Ports
+          </Text>
+          {port}
+        </Box>
+        <Box p={2} width={1 / 3}>
+          <Text m={1} fontSize={5}>
+            Services
+          </Text>
+          <Services /> {services}
+      </Box>
+    </Flex>
+  );
+};
 
 export default PreviousScans;
