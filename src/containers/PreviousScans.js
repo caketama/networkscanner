@@ -41,10 +41,11 @@ const PreviousScans = props => {
   });
   if (!data) {
     getScans();
-    setData(true);
+    setData(true)
   } else {
-    console.log(data);
+    console.log(data)
   }
+  
 
   return (
     <Flex color="#00FF00">
