@@ -7,17 +7,14 @@ import Services from "../components/Services";
 const PreviousScans = props => {
   const [error, setError] = useState(false);
   const [scan, setScan] = useState([]);
+  const [data, setData] = useState(false);
   const [ip, setIp] = useState("");
   const getScans = async () => {
     setError(false);
     try {
       const endpoint = "http://localhost:5000/api/previous_scans";
-      const data = { ip_address: ip };
       const configs = {
-        method: "GET",
-        body: JSON.stringify(data),
-        mode: "cors",
-        headers: { "Content-Type": "application/json" }
+        method: "GET"
       };
       const res = await fetch(endpoint, configs);
       const ip_address = await res.json();
@@ -42,25 +39,33 @@ const PreviousScans = props => {
   let services = scan.map(services => {
     return <Services services={services[2]} />;
   });
+  if (!data) {
+    getScans();
+    setData(true)
+  } else {
+    console.log(data)
+  }
+  
+
   return (
     <Flex color="#00FF00">
-        <Box width={1 / 3}>
-          <Text p={2} m={1} fontSize={5}>
-            IP
-          </Text>
-          {IP[0]}
-        </Box>
-        <Box p={2} width={1 / 3}>
-          <Text m={1} fontSize={5}>
-            Ports
-          </Text>
-          {port}
-        </Box>
-        <Box p={2} width={1 / 3}>
-          <Text m={1} fontSize={5}>
-            Services
-          </Text>
-          <Services /> {services}
+      <Box width={1 / 3}>
+        <Text p={2} m={1} fontSize={5}>
+          IP
+        </Text>
+        {IP[0]}
+      </Box>
+      <Box p={2} width={1 / 3}>
+        <Text m={1} fontSize={5}>
+          Ports
+        </Text>
+        {port}
+      </Box>
+      <Box p={2} width={1 / 3}>
+        <Text m={1} fontSize={5}>
+          Services
+        </Text>
+        <Services /> {services}
       </Box>
     </Flex>
   );
