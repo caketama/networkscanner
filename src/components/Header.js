@@ -6,6 +6,7 @@ const Header = () => {
   return (
     <Flex mx={10} sx={{ justifyContent: "flex-end" }}>
       <Link to="/previousscans">Previous Scans</Link>
+      <Link to="/">Home</Link>
     </Flex>
   );
 };

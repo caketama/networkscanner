@@ -1,6 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import PreviousScans from "./PreviousScans";
+import PreviousScans from "../containers/PreviousScans";
 import Scanner from "../containers/Scanner";
 function Router() {
   return (
