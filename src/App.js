@@ -11,7 +11,7 @@ function App() {
     <ThemeProvider theme={preset}>
     <div className="App">
       <BrowserRouter>
-        {/*<Header />*/}
+        <Header />
         <Router />
       </BrowserRouter>
     </div>

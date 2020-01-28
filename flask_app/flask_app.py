@@ -15,7 +15,7 @@ def add_scans():
     data = request.get_json()
     ip = data.get("ip_address")
     if ip:
-        run(["python", "port_scanner.py", ip])
+        # run(["python", "port_scanner.py", ip])
         with connect("scans.db") as connection:
             cursor = connection.cursor()
             SQL = """SELECT ip_address, ports, services FROM scans
@@ -26,9 +26,14 @@ def add_scans():
         return jsonify({"error": "fix me"})
 
 
-@app.route("/api/previous_scans", method=["POST"])
+@app.route("/api/previous_scans", methods=["POST"])
 def previous_scans():
-    pass
+    with connect("scans.db") as connection:
+        cursor = connection.cursor()
+        SQL = """SELECT * from scans WHERE time < strftime('%s');"""
+        scan = cursor.execute(SQL, ).fetchall()
+        return jsonify({"scan": scan})
+    return jsonify({"error": "fix me"})
 
 
 if __name__ == "__main__":

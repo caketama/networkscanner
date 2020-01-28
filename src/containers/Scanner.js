@@ -37,14 +37,6 @@ const Scan = props => {
     setScan([]);
   };
 
-  const timeOut = e => {
-    e.disabled = true;
-    setTimeout((e) => {
-        e.disabled = false;
-      console.log("this worked");
-      }, 5000)
-  };
-
   let IP = scan.map(IP => {
     return <IPs ip={IP[0]} />;
   });
@@ -60,11 +52,11 @@ const Scan = props => {
   // Search button works with keyboard ENTER or RETURN
   const onFormSubmit = e => {
     e.preventDefault();
-    timeOut(sendScan())
+    sendScan();
   };
 
   return (
-    <Flex color="white" justifyContent="center">
+    <Flex color="#00FF00" justifyContent="center">
       <Box width={1 / 2} margin="40px">
         <Text m={1} fontSize={6}>
           Enter IP:
@@ -76,7 +68,7 @@ const Scan = props => {
             onClick={e => scanReset()}
             variant="outline"
             m={2}
-            color="white"
+            color="#00FF00"
             type="submit"
           >
             SCAN
